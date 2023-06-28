@@ -22,6 +22,10 @@ class _HomeState extends State<Home> {
       body: Container(
         child: const HomeCustomerCard(name: "ankit", email: "test@email",amount: 100,),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {  },
+        child: const Icon(Icons.add),
+      ),
     );
   }
 }

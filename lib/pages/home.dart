@@ -15,15 +15,14 @@ class _HomeState extends State<Home> {
       drawer: const Drawer(),
       appBar: AppBar(
         title: const Text("Udhar"),
-        actions: [
-          IconButton(onPressed: (){}, icon: const Icon(Icons.search))
-        ],
+        actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.search))],
       ),
-      body: Container(
-        child: const HomeCustomerCard(name: "ankit", email: "test@email",amount: 100,),
+      body: const Padding(
+        padding: EdgeInsets.only(top: 10, left: 20, right: 20),
+        child: HomeCustomerCard(),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {  },
+        onPressed: () {},
         child: const Icon(Icons.add),
       ),
     );

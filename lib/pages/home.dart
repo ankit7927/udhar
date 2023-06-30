@@ -17,9 +17,14 @@ class _HomeState extends State<Home> {
         title: const Text("Udhar"),
         actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.search))],
       ),
-      body: const Padding(
-        padding: EdgeInsets.only(top: 10, left: 20, right: 20),
-        child: HomeCustomerCard(),
+      body: Padding(
+        padding: const EdgeInsets.only(left: 12, right: 12),
+        child: ListView.builder(
+          itemCount: 5,
+          itemBuilder: (context, index) {
+            return const HomeCustomerCard();
+          },
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},

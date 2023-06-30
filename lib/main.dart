@@ -8,15 +8,23 @@ void main() {
 class UdharApp extends StatelessWidget {
   const UdharApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return MaterialApp(
       title: 'Udhar',
       theme: ThemeData(
-        useMaterial3: true,
-      ),
-      home: Home(),
+          //useMaterial3: true,
+          scaffoldBackgroundColor: const Color(0xFFF5F5F5),
+          fontFamily: "inter",
+          appBarTheme: const AppBarTheme(
+              backgroundColor: Color(0xFFF5F5F5),
+              elevation: 0,
+              titleTextStyle: TextStyle(
+                  color: Colors.black,
+                  fontSize: 22,
+                  fontWeight: FontWeight.w500),
+              iconTheme: IconThemeData(color: Colors.black, size: 24))),
+      home: const Home(),
     );
   }
 }

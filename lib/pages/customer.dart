@@ -12,7 +12,6 @@ class _CustomerState extends State<Customer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(1, 245, 245, 245),
       appBar: AppBar(
         title: const Text("Customer"),
         actions: [
@@ -25,26 +24,24 @@ class _CustomerState extends State<Customer> {
         child: Column(
           children: [
             Row(
-              //mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 const CircleAvatar(
                   radius: 46,
                 ),
                 Container(
                   margin: const EdgeInsets.only(left: 25),
-                  child: Column(
+                  child: const Column(
                     children: [
-                      const Text(
-                        "100 Rs.",
+                      Text(
+                        "100",
                         style: TextStyle(
-                            fontSize: 32, fontWeight: FontWeight.w600),
+                            fontSize: 36, fontWeight: FontWeight.w600),
                       ),
-                      FilledButton(
-                        onPressed: () {},
-                        style: const ButtonStyle(
-                            padding: MaterialStatePropertyAll(
-                                EdgeInsets.only(left: 50, right: 50))),
-                        child: const Text("Edit"),
+                      Text(
+                        "Total Pending (Rs.)",
+                        style: TextStyle(
+                          fontSize: 14,
+                        ),
                       )
                     ],
                   ),
@@ -62,11 +59,21 @@ class _CustomerState extends State<Customer> {
                       Text(
                         "Customer Name",
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 22),
+                          color: Colors.black,
+                          fontSize: 22,
+                          fontFamily: 'Inter',
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                       Text(
                         "this is a customer address with full text",
                         overflow: TextOverflow.fade,
+                        style: TextStyle(
+                          color: Color(0xFF353535),
+                          fontSize: 16,
+                          fontFamily: 'Inter',
+                          fontWeight: FontWeight.w500,
+                        ),
                       )
                     ],
                   ),
@@ -85,8 +92,10 @@ class _CustomerState extends State<Customer> {
       floatingActionButtonLocation: ExpandableFab.location,
       floatingActionButton:
           ExpandableFab(type: ExpandableFabType.up, distance: 60, children: [
-        FloatingActionButton.small(onPressed: () {}, child: const Icon(Icons.edit)),
-        FloatingActionButton.small(onPressed: () {}, child: const Icon(Icons.person))
+        FloatingActionButton.small(
+            onPressed: () {}, child: const Icon(Icons.edit)),
+        FloatingActionButton.small(
+            onPressed: () {}, child: const Icon(Icons.person))
       ]),
     );
   }

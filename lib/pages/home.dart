@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:udhar/components/home_customer_card.dart';
 import 'package:flutter_expandable_fab/flutter_expandable_fab.dart';
+import 'package:udhar/pages/new_customer.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -19,7 +20,7 @@ class _HomeState extends State<Home> {
         actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.search))],
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 12, right: 12),
+        padding: const EdgeInsets.only(left: 12, right: 12, top: 12),
         child: ListView.builder(
           itemCount: 5,
           itemBuilder: (context, index) {
@@ -30,8 +31,14 @@ class _HomeState extends State<Home> {
       floatingActionButtonLocation: ExpandableFab.location,
       floatingActionButton:
           ExpandableFab(type: ExpandableFabType.up, distance: 60, children: [
-        FloatingActionButton.small(onPressed: () {}, child: const Icon(Icons.person_add)),
-        FloatingActionButton.small(onPressed: () {}, child: const Icon(Icons.shopping_bag))
+        FloatingActionButton.small(
+            onPressed: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => NewCustomer()));
+            },
+            child: const Icon(Icons.person_add)),
+        FloatingActionButton.small(
+            onPressed: () {}, child: const Icon(Icons.shopping_bag))
       ]),
     );
   }

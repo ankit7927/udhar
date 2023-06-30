@@ -12,16 +12,18 @@ class HomeCustomerCard extends StatelessWidget {
           context,
           MaterialPageRoute(builder: (context) => const Customer()),
         );
-      }, 
+      },
       child: Card(
-        elevation: 1.6,
-        margin: const EdgeInsets.only(bottom: 12.0),
+        surfaceTintColor: Colors.white,
+        elevation: 2,
+        margin: const EdgeInsets.only(bottom: 10.0),
         child: Container(
-          padding: const EdgeInsets.fromLTRB(12, 10, 12, 10),
+          padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
           child: const Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               CircleAvatar(
-                radius: 30.0,
+                radius: 26.0,
               ),
               SizedBox(width: 10.0),
               Expanded(
@@ -47,12 +49,11 @@ class HomeCustomerCard extends StatelessWidget {
                     "100",
                     style: TextStyle(
                         fontSize: 32.0,
-                        fontWeight: FontWeight.bold,
-                        height: 0.8),
+                        fontWeight: FontWeight.bold),
                   ),
                   Text(
                     "Rs.",
-                    style: TextStyle(fontSize: 8),
+                    style: TextStyle(fontSize: 10),
                   )
                 ],
               )

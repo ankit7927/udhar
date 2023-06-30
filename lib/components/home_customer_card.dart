@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:udhar/pages/customer.dart';
+import 'package:udhar/components/text_dp.dart';
 
 class HomeCustomerCard extends StatelessWidget {
   const HomeCustomerCard({super.key});
@@ -18,13 +19,11 @@ class HomeCustomerCard extends StatelessWidget {
         elevation: 2,
         margin: const EdgeInsets.only(bottom: 10.0),
         child: Container(
-          padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
+          padding: const EdgeInsets.fromLTRB(12, 12, 12, 12),
           child: const Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              CircleAvatar(
-                radius: 26.0,
-              ),
+              TextDP(text: "test", radius: 24, fontSize: 18),
               SizedBox(width: 10.0),
               Expanded(
                 child: Column(
@@ -41,15 +40,14 @@ class HomeCustomerCard extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(width: 10.0),
+              SizedBox(width: 24.0),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     "100",
-                    style: TextStyle(
-                        fontSize: 32.0,
-                        fontWeight: FontWeight.bold),
+                    style:
+                        TextStyle(fontSize: 32.0, fontWeight: FontWeight.bold),
                   ),
                   Text(
                     "Rs.",

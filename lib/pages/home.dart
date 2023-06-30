@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:udhar/components/home_customer_card.dart';
 import 'package:flutter_expandable_fab/flutter_expandable_fab.dart';
 import 'package:udhar/pages/new_customer.dart';
+import 'package:udhar/components/drawer.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -14,7 +15,9 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const Drawer(),
+      drawer: const Drawer(
+        child: CustomDrawer(),
+      ),
       appBar: AppBar(
         title: const Text("Udhar"),
         actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.search))],

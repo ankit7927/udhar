@@ -28,34 +28,23 @@ class _NewCustomerState extends State<NewCustomer> {
                       Icons.camera_alt,
                     )),
               ),
-              Container(
-                  margin: const EdgeInsets.only(top: 30),
-                  child: const TextField(
-                    decoration: InputDecoration(
-                        label: Text("Name"), border: OutlineInputBorder()),
-                  )),
-              Container(
-                  margin: const EdgeInsets.only(top: 10),
-                  child: const TextField(
-                    decoration: InputDecoration(
-                        label: Text("Contact Number"),
-                        border: OutlineInputBorder()),
-                  )),
-              Container(
-                  margin: const EdgeInsets.only(top: 10),
-                  child: const TextField(
-                    keyboardType: TextInputType.numberWithOptions(),
-                    decoration: InputDecoration(
-                        label: Text("Address"), border: OutlineInputBorder()),
-                  )),
-              Container(
-                margin: const EdgeInsets.only(top: 40),
-                
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: const Text("Save and add Products"),
-                ),
-              )
+              const SizedBox(height: 30),
+              const TextField(
+                decoration: InputDecoration(
+                    label: Text("Name"), border: OutlineInputBorder()),
+              ),
+              const SizedBox(height: 10),
+              const TextField(
+                decoration: InputDecoration(
+                    label: Text("Contact Number"),
+                    border: OutlineInputBorder()),
+              ),
+              const SizedBox(height: 10),
+              const TextField(
+                keyboardType: TextInputType.numberWithOptions(),
+                decoration: InputDecoration(
+                    label: Text("Address"), border: OutlineInputBorder()),
+              ),
             ],
           ),
         ),

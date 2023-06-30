@@ -20,7 +20,7 @@ class _CustomerState extends State<Customer> {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 14, left: 20, right: 20),
+        padding: const EdgeInsets.only(left: 18, right: 18, top: 14),
         child: Column(
           children: [
             Row(

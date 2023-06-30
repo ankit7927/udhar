@@ -20,7 +20,7 @@ class _HomeState extends State<Home> {
         actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.search))],
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 12, right: 12, top: 12),
+        padding: const EdgeInsets.only(left: 18, right: 18, top: 14),
         child: ListView.builder(
           itemCount: 5,
           itemBuilder: (context, index) {

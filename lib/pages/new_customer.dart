@@ -16,12 +16,11 @@ class _NewCustomerState extends State<NewCustomer> {
         actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.check))],
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 10, right: 10, top: 20),
+        padding: const EdgeInsets.only(left: 18, right: 18, top: 14),
         child: Center(
           child: Column(
             children: [
               CircleAvatar(
-                backgroundColor: Colors.red,
                 radius: 50,
                 child: IconButton(
                     onPressed: () {},

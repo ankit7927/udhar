@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:udhar/components/home_customer_card.dart';
+import 'package:flutter_expandable_fab/flutter_expandable_fab.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -26,10 +27,12 @@ class _HomeState extends State<Home> {
           },
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(Icons.add),
-      ),
+      floatingActionButtonLocation: ExpandableFab.location,
+      floatingActionButton:
+          ExpandableFab(type: ExpandableFabType.up, distance: 60, children: [
+        FloatingActionButton.small(onPressed: () {}, child: const Icon(Icons.person_add)),
+        FloatingActionButton.small(onPressed: () {}, child: const Icon(Icons.shopping_bag))
+      ]),
     );
   }
 }

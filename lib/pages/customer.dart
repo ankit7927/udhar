@@ -85,8 +85,8 @@ class _CustomerState extends State<Customer> {
       floatingActionButtonLocation: ExpandableFab.location,
       floatingActionButton:
           ExpandableFab(type: ExpandableFabType.up, distance: 60, children: [
-        FloatingActionButton.small(onPressed: () {}, child: Icon(Icons.edit)),
-        FloatingActionButton.small(onPressed: () {}, child: Icon(Icons.person))
+        FloatingActionButton.small(onPressed: () {}, child: const Icon(Icons.edit)),
+        FloatingActionButton.small(onPressed: () {}, child: const Icon(Icons.person))
       ]),
     );
   }

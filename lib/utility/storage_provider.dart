@@ -1,9 +1,8 @@
-
 import 'package:localstorage/localstorage.dart';
 
-class StorageProvider{
-  static LocalStorage  getStorage(){
-    LocalStorage storage = LocalStorage('customers.json');
-    return storage;
+class StorageProvider {
+  static const String CUSTOMER = "customers";
+  static LocalStorage getCustomerStorage() {
+    return LocalStorage('$CUSTOMER.json');
   }
 }

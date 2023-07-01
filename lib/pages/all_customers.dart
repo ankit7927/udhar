@@ -14,14 +14,7 @@ class AllCustomers extends StatefulWidget {
 
 class _AllCustomersState extends State<AllCustomers> {
   CustomerList customerList = CustomerList();
-  LocalStorage storage = StorageProvider.getStorage();
-
-  getData() {
-    var items = storage.getItem("customers");
-    customerList.customers = List<Customer>.from((items as List).map((e) =>
-        Customer(
-            name: e["name"], contact: e["contact"], address: e["address"])));
-  }
+  LocalStorage storage = StorageProvider.getCustomerStorage();
 
   @override
   Widget build(BuildContext context) {
@@ -49,24 +42,14 @@ class _AllCustomersState extends State<AllCustomers> {
                         address: e["address"])));
               }
 
-              List<HomeCustomerCard> list = customerList.customers.map((e) {
-                return HomeCustomerCard(
-                    name: e.name, address: e.address, contact: e.contact);
-              }).toList();
-
               return Column(
-                children: list,
+                children: customerList.customers.map((e) {
+                  return HomeCustomerCard(
+                      name: e.name, address: e.address, contact: e.contact);
+                }).toList(),
               );
             },
-          )
-
-          /*ListView.builder(
-          itemCount: 5,
-          itemBuilder: (context, index) {
-            return const HomeCustomerCard();
-          },
-        ),*/
-          ),
+          )),
     );
   }
 }

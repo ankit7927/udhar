@@ -1,5 +1,3 @@
-import 'dart:js_interop';
-
 import 'package:flutter/material.dart';
 import 'package:localstorage/localstorage.dart';
 import 'package:udhar/components/home_customer_card.dart';
@@ -18,14 +16,12 @@ class _AllCustomersState extends State<AllCustomers> {
   CustomerList customerList = CustomerList();
   LocalStorage storage = StorageProvider.getStorage();
 
-  getData(){
+  getData() {
     var items = storage.getItem("customers");
-    if(! items.isNull){
-      customerList.customers = List<Customer>.from((items as List));
-    }
+    customerList.customers = List<Customer>.from((items as List).map((e) =>
+        Customer(
+            name: e["name"], contact: e["contact"], address: e["address"])));
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -44,16 +40,22 @@ class _AllCustomersState extends State<AllCustomers> {
                 );
               }
 
+              var items = storage.getItem("customers");
+              if (items != null) {
+                customerList.customers = List<Customer>.from((items as List)
+                    .map((e) => Customer(
+                        name: e["name"],
+                        contact: e["contact"],
+                        address: e["address"])));
+              }
 
+              List<HomeCustomerCard> list = customerList.customers.map((e) {
+                return HomeCustomerCard(
+                    name: e.name, address: e.address, contact: e.contact);
+              }).toList();
 
-              return ListView.builder(
-                itemCount: 5,
-                itemBuilder: (context, index) {
-                  return const HomeCustomerCard(
-                      name: "new Customer",
-                      address: "A test address",
-                      contact: 123456);
-                },
+              return Column(
+                children: list,
               );
             },
           )

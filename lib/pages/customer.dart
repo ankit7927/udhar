@@ -14,10 +14,6 @@ class _CustomerState extends State<Customer> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Customer"),
-        actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.edit)),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.history)),
-        ],
       ),
       body: Padding(
         padding: const EdgeInsets.only(left: 18, right: 18, top: 14),
@@ -93,9 +89,15 @@ class _CustomerState extends State<Customer> {
       floatingActionButton:
           ExpandableFab(type: ExpandableFabType.up, distance: 60, children: [
         FloatingActionButton.small(
-            onPressed: () {}, child: const Icon(Icons.edit)),
+            tooltip: "Edit Profile",
+            heroTag: "Edit Profile",
+            onPressed: () {},
+            child: const Icon(Icons.edit)),
         FloatingActionButton.small(
-            onPressed: () {}, child: const Icon(Icons.person))
+            tooltip: "History",
+            heroTag: "History",
+            onPressed: () {},
+            child: const Icon(Icons.history)),
       ]),
     );
   }

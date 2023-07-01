@@ -58,15 +58,22 @@ class _NewCustomerState extends State<NewCustomer> {
           child: Column(
             children: [
               CircleAvatar(
-                radius: 50,
+                radius: 40,
                 child: IconButton(
                     onPressed: () {},
                     icon: const Icon(
                       Icons.camera_alt,
+                      size: 30,
                     )),
               ),
-              const SizedBox(height: 30),
-              TextField(
+              const SizedBox(height: 40),
+              TextFormField(
+                validator: (str){
+                  if (str!.isEmpty){
+                    return "Must be filed";
+                  }
+                  return null;
+                },
                 controller: nameController,
                 decoration: const InputDecoration(
                     label: Text("Name"), border: OutlineInputBorder()),
@@ -85,13 +92,6 @@ class _NewCustomerState extends State<NewCustomer> {
                 decoration: const InputDecoration(
                     label: Text("Address"), border: OutlineInputBorder()),
               ),
-              const SizedBox(height: 40),
-              ElevatedButton(
-                  onPressed: () {
-                    var data = storage.getItem("customers.json");
-
-                  },
-                  child: const Text("check db"))
             ],
           ),
         ),

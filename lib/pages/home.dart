@@ -38,12 +38,14 @@ class _HomeState extends State<Home> {
       floatingActionButton:
           ExpandableFab(type: ExpandableFabType.up, distance: 60, children: [
         FloatingActionButton.small(
+          heroTag: "New Customer",
             onPressed: () {
               Navigator.of(context)
                   .push(MaterialPageRoute(builder: (context) => NewCustomer()));
             },
             child: const Icon(Icons.person_add)),
         FloatingActionButton.small(
+          heroTag: "Add Product",
             onPressed: () {}, child: const Icon(Icons.shopping_bag))
       ]),
     );

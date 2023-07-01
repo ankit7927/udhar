@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:udhar/pages/all_customers.dart';
 
 class CustomDrawer extends StatefulWidget {
   const CustomDrawer({super.key});
@@ -47,7 +48,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
         ListTile(
           leading: const Icon(Icons.person),
           title: const Text("Customers"),
-          onTap: () {},
+          onTap: () {
+            Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => const AllCustomers()));
+          },
         ),
         ListTile(
           leading: const Icon(Icons.settings),

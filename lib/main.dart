@@ -13,7 +13,7 @@ class UdharApp extends StatelessWidget {
     return MaterialApp(
       title: 'Udhar',
       theme: ThemeData(
-          //useMaterial3: true,
+          useMaterial3: true,
           scaffoldBackgroundColor: const Color(0xFFF5F5F5),
           fontFamily: "inter",
           appBarTheme: const AppBarTheme(

@@ -3,6 +3,26 @@ class Customer {
 
   String name, address;
   int contact;
+
+  toJSONEncodable(){
+    Map<String, dynamic> m = new Map();
+    m["name"] = name;
+    m["address"]= address;
+    m["contact"] = contact;
+
+    return m;
+  }
+}
+
+class CustomerList {
+  List<Customer> customers = [];
+
+  toJSONEncodable() {
+    return customers.map((item) {
+      return item.toJSONEncodable();
+    }).toList();
+  }
+
 }
 
 class Product {

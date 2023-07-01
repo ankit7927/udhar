@@ -27,7 +27,10 @@ class _HomeState extends State<Home> {
         child: ListView.builder(
           itemCount: 5,
           itemBuilder: (context, index) {
-            return const HomeCustomerCard();
+            return const HomeCustomerCard(
+                name: "new Customer",
+                address: "A test address",
+                contact: 123456);
           },
         ),
       ),

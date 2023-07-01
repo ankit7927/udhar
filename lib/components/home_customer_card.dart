@@ -3,7 +3,14 @@ import 'package:udhar/pages/customer.dart';
 import 'package:udhar/components/text_dp.dart';
 
 class HomeCustomerCard extends StatelessWidget {
-  const HomeCustomerCard({super.key});
+  const HomeCustomerCard(
+      {super.key,
+      required this.name,
+      required this.address,
+      required this.contact});
+
+  final String name, address;
+  final int contact;
 
   @override
   Widget build(BuildContext context) {

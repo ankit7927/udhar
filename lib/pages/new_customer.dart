@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:localstorage/localstorage.dart';
+import 'package:udhar/utility/models.dart';
 
 class NewCustomer extends StatefulWidget {
   NewCustomer({super.key});
@@ -13,6 +15,21 @@ class NewCustomer extends StatefulWidget {
 }
 
 class _NewCustomerState extends State<NewCustomer> {
+  CustomerList customerList = CustomerList();
+  LocalStorage storage = LocalStorage('customers.json');
+
+  TextEditingController nameController = TextEditingController();
+  TextEditingController addressController = TextEditingController();
+  TextEditingController contactController = TextEditingController();
+
+  addCustomers(String name, String address, int contact) {
+    Customer newCustomer =
+        Customer(name: name, contact: contact, address: address);
+
+    customerList.customers.add(newCustomer);
+    storage.setItem('customers', customerList.toJSONEncodable());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +39,14 @@ class _NewCustomerState extends State<NewCustomer> {
           IconButton(
               onPressed: () {
                 setState(() {
-                  widget.nameCont = widget.name + widget.contact.toString();
+                  addCustomers(
+                      nameController.value.text,
+                      addressController.value.text,
+                      int.parse(contactController.value.text));
+                  nameController.clear();
+                  addressController.clear();
+                  contactController.clear();
+                  Navigator.of(context).pop();
                 });
               },
               icon: const Icon(Icons.check))
@@ -43,17 +67,13 @@ class _NewCustomerState extends State<NewCustomer> {
               ),
               const SizedBox(height: 30),
               TextField(
-                onChanged: (String data) {
-                  widget.name = data;
-                },
+                controller: nameController,
                 decoration: const InputDecoration(
                     label: Text("Name"), border: OutlineInputBorder()),
               ),
               const SizedBox(height: 10),
               TextField(
-                onChanged: (String data) {
-                  widget.contact = int.parse(data);
-                },
+                controller: contactController,
                 keyboardType: const TextInputType.numberWithOptions(),
                 decoration: const InputDecoration(
                     label: Text("Contact Number"),
@@ -61,17 +81,17 @@ class _NewCustomerState extends State<NewCustomer> {
               ),
               const SizedBox(height: 10),
               TextField(
-                onChanged: (String data) {
-                  widget.address = data;
-                },
+                controller: addressController,
                 decoration: const InputDecoration(
                     label: Text("Address"), border: OutlineInputBorder()),
               ),
               const SizedBox(height: 40),
-              Text(
-                widget.nameCont,
-                style: const TextStyle(fontSize: 30),
-              )
+              ElevatedButton(
+                  onPressed: () {
+                    var data = storage.getItem("customers.json");
+
+                  },
+                  child: const Text("check db"))
             ],
           ),
         ),
